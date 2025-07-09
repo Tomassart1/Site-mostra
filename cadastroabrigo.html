@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Cadastro de Abrigo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Inter, sans-serif;
+      margin: 40px;
+      background-color: #fff;
+      color: #000;
+    }
+
+    h1 {
+      font-size: 40px;
+      font-weight: bold;
+      font-style: italic;
+    }
+
+    .highlight {
+      border-bottom: 3px solid #754CEC;
+      padding-bottom: 2px;
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .left, .right {
+      width: 48%;
+    }
+
+    .section-title {
+      font-weight: bold;
+      margin-top: 25px;
+      margin-bottom: 8px;
+      font-size: 20px;
+    }
+
+    .counter-group {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 10px;
+    }
+
+    .counter-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-left: 20px;
+    }
+
+    .counter-controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .counter-btn {
+      width: 26px;
+      height: 26px;
+      border: 1px solid #7F858D;
+      color: #7F858D;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 24px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .counter-value {
+      width: 20px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: none;
+      border-bottom: 3px solid #eee;
+      color: #333;
+      font-size: 14px;
+      outline: none;
+    }
+
+    input::placeholder {
+      color: #7F858D;
+    }
+
+    .checkbox-group label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 8px;
+      font-size: 14px;
+    }
+
+    .custom-checkbox {
+      width: 16px;
+      height: 16px;
+      border: 2px solid #A88AFF;
+      background-color: #E0D5FF;
+      cursor: pointer;
+    }
+
+    .custom-checkbox.checked {
+      background-color: #A88AFF;
+    }
+
+    .info-group {
+      margin-top: 15px;
+    }
+
+    .info-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 10px 0;
+    }
+
+    .info-label {
+      display: flex;
+      flex-direction: column;
+      font-size: 14px;
+      margin-left: 20px;
+    }
+
+    .info-label span {
+      font-size: 12px;
+      color: #7F858D;
+    }
+
+    .toggle-buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .toggle-btn {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 2px solid #7F858D;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .toggle-btn.selected {
+      background-color: #754CEC;
+      color: white;
+      border-color: #754CEC;
+    }
+
+    .continue-btn {
+      margin-top: 30px;
+      width: 417px;
+      height: 59px;
+      background-color: #754CEC;
+      color: white;
+      border: none;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+
+    .message {
+      margin-top: 20px;
+      color: green;
+      font-weight: bold;
+      font-size: 16px;
+    }
+    .input-italico{
+        font-style: italic;
+    }
+  </style>
+</head>
+<body>
+
+  <h1><span class="highlight">Cada</span>stre seu abrigo</h1>
+
+  <div class="container">
+    <div class="left">
+      <div class="section-title">Número de hóspedes</div>
+      <div class="counter-group">
+        <div class="counter-item">
+          <span>Hóspedes</span>
+          <div class="counter-controls">
+            <div class="counter-btn" onclick="decrement('hospedes')">−</div>
+            <div class="counter-value" id="hospedes">1</div>
+            <div class="counter-btn" onclick="increment('hospedes')">+</div>
+          </div>
+        </div>
+        <div class="counter-item">
+          <span>Camas</span>
+          <div class="counter-controls">
+            <div class="counter-btn" onclick="decrement('camas')">−</div>
+            <div class="counter-value" id="camas">1</div>
+            <div class="counter-btn" onclick="increment('camas')">+</div>
+          </div>
+        </div>
+        <div class="counter-item">
+          <span>Quartos</span>
+          <div class="counter-controls">
+            <div class="counter-btn" onclick="decrement('quartos')">−</div>
+            <div class="counter-value" id="quartos">1</div>
+            <div class="counter-btn" onclick="increment('quartos')">+</div>
+          </div>
+        </div>
+        <div class="counter-item">
+          <span>Banheiros</span>
+          <div class="counter-controls">
+            <div class="counter-btn" onclick="decrement('banheiros')">−</div>
+            <div class="counter-value" id="banheiros">1</div>
+            <div class="counter-btn" onclick="increment('banheiros')">+</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-title">Outras comodidades</div>
+      <input type="text" class="input-italico" placeholder="Ex: Pátio, Área Kids, Churrasqueira..." id="comodidades">
+      <div class="section-title">O que seu espaço oferece</div>
+      <input type="text" class="input-italico" placeholder="Ex: Wifi, TV, Cozinha, máquina de lavar..." id="espaco">
+
+      <div class="section-title">Itens de segurança</div>
+      <div class="checkbox-group">
+        <label>
+          <div class="custom-checkbox" onclick="toggleCheck(this)" data-id="fumaça"></div>
+          Detector de fumaça
+        </label>
+        <label>
+          <div class="custom-checkbox" onclick="toggleCheck(this)" data-id="socorros"></div>
+          Kit de primeiros socorros
+        </label>
+        <label>
+          <div class="custom-checkbox" onclick="toggleCheck(this)" data-id="incendio"></div>
+          Extintor de incêndio
+        </label>
+      </div>
+    </div>
+
+    <div class="right">
+      <div class="section-title">Destaques</div>
+      <input type="text" class="input-italico" placeholder="Ex: Ideal para famílias, espaçoso..." id="destaques">
+
+      <div class="section-title">Descrição</div>
+      <input type="text" class="input-italico" placeholder="Digite sua descrição" id="descricao">
+
+      <div class="section-title">Informações gerais</div>
+      <div class="info-group" id="info-gerais">
+        <div class="info-item">
+          <div class="info-label">Deve subir escadas</div>
+          <div class="toggle-buttons" data-id="escadas">
+            <div class="toggle-btn" onclick="toggleSelect(this)">✕</div>
+            <div class="toggle-btn selected" onclick="toggleSelect(this)">✓</div>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">Barulho</div>
+          <div class="toggle-buttons" data-id="barulho">
+            <div class="toggle-btn" onclick="toggleSelect(this)">✕</div>
+            <div class="toggle-btn" onclick="toggleSelect(this)">✓</div>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">Presença de animais</div>
+          <div class="toggle-buttons" data-id="animais">
+            <div class="toggle-btn" onclick="toggleSelect(this)">✕</div>
+            <div class="toggle-btn" onclick="toggleSelect(this)">✓</div>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">Estacionamento</div>
+          <div class="toggle-buttons" data-id="estacionamento">
+            <div class="toggle-btn" onclick="toggleSelect(this)">✕</div>
+            <div class="toggle-btn" onclick="toggleSelect(this)">✓</div>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">Espaços compartilhados</div>
+          <div class="toggle-buttons" data-id="compartilhado">
+            <div class="toggle-btn" onclick="toggleSelect(this)">✕</div>
+            <div class="toggle-btn" onclick="toggleSelect(this)">✓</div>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">Limitações de comodidades</div>
+          <div class="toggle-buttons" data-id="limitacoes">
+            <div class="toggle-btn" onclick="toggleSelect(this)">✕</div>
+            <div class="toggle-btn" onclick="toggleSelect(this)">✓</div>
+          </div>
+        </div>
+      </div>
+
+      <button class="continue-btn" onclick="enviar()">Continuar</button>
+      <div class="message" id="mensagem"></div>
+    </div>
+  </div>
+
+  <script>
+    function increment(id) {
+      const el = document.getElementById(id);
+      let val = parseInt(el.innerText);
+      el.innerText = val + 1;
+    }
+
+    function decrement(id) {
+      const el = document.getElementById(id);
+      let val = parseInt(el.innerText);
+      if (val > 1) el.innerText = val - 1;
+    }
+
+    function toggleCheck(el) {
+      el.classList.toggle("checked");
+    }
+
+    function toggleSelect(el) {
+      const group = el.parentNode.querySelectorAll('.toggle-btn');
+      group.forEach(btn => btn.classList.remove('selected'));
+      el.classList.add('selected');
+    }
+
+    function enviar() {
+      const data = {
+        hospedes: document.getElementById("hospedes").innerText,
+        camas: document.getElementById("camas").innerText,
+        quartos: document.getElementById("quartos").innerText,
+        banheiros: document.getElementById("banheiros").innerText,
+        comodidades: document.getElementById("comodidades").value,
+        espaco: document.getElementById("espaco").value,
+        destaques: document.getElementById("destaques").value,
+        descricao: document.getElementById("descricao").value,
+      };
+
+      document.getElementById("mensagem").innerText = "Abrigo cadastrado!";
+      console.log("Dados:", data);
+    }
+  </script>
+
+</body>
+</html>

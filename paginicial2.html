@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ajude a Serra Gaúcha</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+    }
+    header {
+      background-color: #754CEC;
+      color: white;
+      padding: 2.5rem 1rem;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .title {
+      background-color: #00008b;
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 2rem;
+    }
+    .subtitle {
+      font-size: 1rem;
+      margin-top: 0.5rem;
+    }
+    .icon-button {
+      width: 24px;
+      height: 24px;
+    }
+    .top-right-buttons {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .top-right-buttons button {
+      background: none;
+      border: none;
+      font-size: 0.5rem;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    nav {
+      background-color: #8d6af5;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 0.5rem;
+    }
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .nav-item span {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .nav-item img {
+      width: 10px;
+      height: 10px;
+    }
+
+    .container {
+      display: flex;
+      padding: 3rem;
+    }
+    .sidebar-left, .sidebar-right {
+      width: 20%;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      color: #6a0dad;
+    }
+    .sidebar-left span,
+    .sidebar-right span {
+      font-weight: bold;
+      color: #754CEC;
+    }
+    .opcao-com-seta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #6a0dad;
+      cursor: pointer;
+    }
+    .opcao-com-seta img {
+      width: 20px;
+      height: 20px;
+      margin-left: 0.5rem;
+    }
+    .clear-button {
+      background-color: #e6d8f3;
+      color: #6a0dad;
+      border: none;
+      padding: 0.5rem;
+      cursor: pointer;
+      font-weight: bold;
+      width: fit-content;
+    }
+    #map {
+      flex-grow: 1;
+      height: 500px;
+      margin: 0 1rem;
+    }
+    .map-footer {
+      background-color: #8d6af5;
+      color: white;
+      text-align: center;
+      padding: 0.5rem;
+      font-weight: bold;
+    }
+    .map-container {
+      display: flex;
+      justify-content: center;
+      padding: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="title"><strong><em>AJUDE <br> A SERRA GAÚCHA</em></strong></div>
+    <div class="subtitle">Consulte informações sobre oportunidades <br> de voluntariado para seu caso.</div>
+    <div class="top-right-buttons">
+      <button><img src="imagens/search-interface-symbol.png" alt="busca" class="icon-button"></button>
+      <button><img src="imagens/menu.png" alt="menu" class="icon-button"></button>
+      <button><img src="imagens/user.png" alt="user" class="icon-button"></button>
+      <span>Crie sua conta <br> ou faça login</span>
+    </div>
+  </header>
+
+  <nav>
+    <div class="nav-item"><span>Página Inicial <img src="imagens/arrow-down-branca.png" alt="seta"></span></div>
+    <div class="nav-item"><span>Abrigos e Centros <img src="imagens/arrow-down-branca.png" alt="seta"></span></div>
+    <div class="nav-item"><span>Campanhas <img src="imagens/arrow-down-branca.png" alt="seta"></span></div>
+    <div class="nav-item"><span>Voluntários <img src="imagens/arrow-down-branca.png" alt="seta"></span></div>
+    <div class="nav-item"><span>Comunicação <img src="imagens/arrow-down-branca.png" alt="seta"></span></div>
+    <div class="nav-item"><span>Desaparecidos <img src="imagens/arrow-down-branca.png" alt="seta"></span></div>
+    <div class="nav-item"><span>Contatos <img src="imagens/arrow-down-branca.png" alt="seta"></span></div>
+  </nav>
+
+  <div class="container">
+    <div class="sidebar-left">
+      <span>Filtrar por cidade</span>
+      <div class="opcao-com-seta">
+        <span>Caxias do Sul</span>
+        <img src="imagens/arrow-down-cinza.png" alt="seta">
+      </div>
+
+      <span>Filtrar por bairro</span>
+      <div class="opcao-com-seta">
+        <span>Todos</span>
+        <img src="imagens/arrow-down-cinza.png" alt="seta">
+      </div>
+
+      <span>Filtrar por endereço</span>
+      <div class="opcao-com-seta">
+        <span>Todos</span>
+        <img src="imagens/arrow-down-cinza.png" alt="seta">
+      </div>
+
+      <span>Filtrar por abrigo</span>
+      <div class="opcao-com-seta">
+        <span>Todos</span>
+        <img src="imagens/arrow-down-cinza.png" alt="seta">
+      </div>
+
+      <span>Filtrar por necessidade</span>
+      <div class="opcao-com-seta">
+        <span>Todos</span>
+        <img src="imagens/arrow-down-cinza.png" alt="seta">
+      </div>
+
+      <span>Filtrar por tipo de abrigo</span>
+      <div class="opcao-com-seta">
+        <span>Todos</span>
+        <img src="imagens/arrow-down-cinza.png" alt="seta">
+      </div>
+
+      <button class="clear-button">Limpar filtros</button>
+    </div>
+
+    <div id="map"></div>
+
+    <div class="sidebar-right">
+      <span>Filtrar por campanha</span>
+      <div class="opcao-com-seta">
+        <span>Todas</span>
+        <img src="imagens/arrow-down-cinza.png" alt="seta">
+      </div>
+
+      <span>Filtrar por centro de coleta</span>
+      <div class="opcao-com-seta">
+        <span>Todas</span>
+        <img src="imagens/arrow-down-cinza.png" alt="seta">
+      </div>
+
+      <span>Filtrar por necessidade</span>
+      <div class="opcao-com-seta">
+        <span>Todas</span>
+        <img src="imagens/arrow-down-cinza.png" alt="seta">
+      </div>
+
+      <span>Tipo de centro de coleta</span>
+      <div class="opcao-com-seta">
+        <span>Todas</span>
+        <img src="imagens/arrow-down-cinza.png" alt="seta">
+      </div>
+
+      <span>Tipo de arrecadação</span>
+      <div class="opcao-com-seta">
+        <span>Todas</span>
+        <img src="imagens/arrow-down-cinza.png" alt="seta">
+      </div>
+    </div>
+  </div>
+
+  <div class="map-footer">Mapa de abrigos e centros de coleta</div>
+
+  <div class="map-container">
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d111485.3282399713!2d-51.19308182284734!3d-29.167132536399222!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spt-BR!2sbr!4v1751143724563!5m2!1spt-BR!2sbr"
+      width="600" 
+      height="450" 
+      style="border:0;" 
+      allowfullscreen="" 
+      loading="lazy" 
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</body>
+</html>
+
