@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro de Ocorrência</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: Inter, sans-serif;
+      background-color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      position: relative;
+    }
+    h1 {
+      font-size: 50px;
+      font-weight: bold;
+      font-style: italic;
+      text-align: left;
+      margin: 20px 0 0 20px;
+      border-bottom: 2px solid #8e44ad;
+      padding-bottom: 5px;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .container {
+      display: flex;
+      gap: 2rem;
+    }
+    .section {
+      padding: 1rem;
+    }
+    .left-section {
+      width: 300px;
+    }
+    .right-section {
+      width: 300px;
+    }
+    .form-group {
+      margin-bottom: 1rem;
+    }
+    label {
+      font-size: 1rem;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    input[type="text"], textarea {
+      width: 100%;
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+      color: #7F858D;
+    }
+    textarea {
+      height: 60px;
+      resize: none;
+    }
+    .checkbox-group label {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+    .checkbox-group input[type="checkbox"] {
+      margin-right: 0.5rem;
+      width: 16px;
+      height: 16px;
+      border: 2px solid #A88AFF;
+      background-color: #E0D5FF;
+      cursor: pointer;
+    }
+    .radio-group label {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+    .radio-group input[type="radio"] {
+      margin-right: 0.5rem;
+      width: 16px;
+      height: 16px;
+      border: 2px solid #A88AFF;
+      background-color: #E0D5FF;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    button {
+      width: 417px;
+      height: 53px;
+      padding: 0.75rem;
+      background-color: #8e44ad;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      font-size: 1rem;
+      cursor: pointer;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      transform: translateX(-50%);
+    }
+    button:hover {
+      background-color: #7d3c98;
+    }
+  </style>
+</head>
+<body>
+  <h1>Registre sua ocorrência</h1>
+  <div class="container">
+    <div class="left-section section">
+      <div class="form-group">
+        <label for="quantidade">Quantidade de pessoas</label>
+        <input type="text" id="quantidade" name="quantidade" placeholder="Digite o número de pessoas" value="">
+      </div>
+      <div class="form-group checkbox-group">
+        <label>Faixa etária</label>
+        <label><input type="checkbox" name="faixa-etaria" value="criancas"> Crianças</label>
+        <label><input type="checkbox" name="faixa-etaria" value="adultos"> Adultos</label>
+        <label><input type="checkbox" name="faixa-etaria" value="idosos"> Idosos</label>
+        <label><input type="checkbox" name="faixa-etaria" value="pcd"> PCD's (Pessoa(s) com deficiência)</label>
+      </div>
+      <div class="form-group">
+        <label for="saude">Condições de saúde</label>
+        <textarea id="saude" name="saude" placeholder="Descrever a situação de saúde do grupo"></textarea>
+      </div>
+    </div>
+    <div class="right-section section">
+      <div class="form-group radio-group">
+        <label>Animais de estimação</label>
+        <label><input type="radio" name="animais" value="sim"> Sim</label>
+        <label><input type="radio" name="animais" value="nao"> Não</label>
+      </div>
+      <div class="form-group" id="animais-details" style="display: none;">
+        <label for="animais-quantidade">Se sim, quantos animais são?</label>
+        <input type="text" id="animais-quantidade" name="animais-quantidade" placeholder="Digite o número de animais">
+      </div>
+      <div class="form-group radio-group">
+        <label>Tempo estimado</label>
+        <label><input type="radio" name="tempo" value="menos1dia"> Menos de 1 dia</label>
+        <label><input type="radio" name="tempo" value="1a7dias"> 1-7 dias</label>
+        <label><input type="radio" name="tempo" value="mais7dias"> Mais de 7 dias</label>
+      </div>
+      <div class="form-group">
+        <label for="necessidades">Necessidades específicas (opcional)</label>
+        <textarea id="necessidades" name="necessidades" placeholder="Ex.: Dieta restritiva, medicamentos, recursos de acessibilidade"></textarea>
+      </div>
+    </div>
+  </div>
+  <button type="button" onclick="handleSubmit()">Registrar</button>
+
+  <script>
+    function handleSubmit() {
+      const quantidade = document.getElementById('quantidade').value;
+      const faixaEtaria = Array.from(document.querySelectorAll('input[name="faixa-etaria"]:checked')).map(cb => cb.value).join(', ');
+      const saude = document.getElementById('saude').value;
+      const animais = document.querySelector('input[name="animais"]:checked')?.value || 'não';
+      const animaisQuantidade = document.getElementById('animais-quantidade').value;
+      const tempo = document.querySelector('input[name="tempo"]:checked')?.value || '';
+      const necessidades = document.getElementById('necessidades').value;
+
+      alert(`Ocorrência registrada:\nQuantidade de pessoas: ${quantidade}\nFaixa etária: ${faixaEtaria || 'Nenhuma'}\nCondições de saúde: ${saude || 'Nenhuma'}\nAnimais de estimação: ${animais}${animais === 'sim' ? ` (${animaisQuantidade || 'não especificado'})` : ''}\nTempo estimado: ${tempo || 'Não especificado'}\nNecessidades específicas: ${necessidades || 'Nenhuma'}`);
+      document.querySelectorAll('input, textarea').forEach(el => el.value = '');
+      document.querySelectorAll('input[type="checkbox"], input[type="radio"]').forEach(el => el.checked = false);
+      document.getElementById('animais-details').style.display = 'none';
+    }
+
+    document.querySelectorAll('input[name="animais"]').forEach(radio => {
+      radio.addEventListener('change', () => {
+        document.getElementById('animais-details').style.display = radio.value === 'sim' ? 'block' : 'none';
+      });
+    });
+  </script>
+</body>
+</html>
