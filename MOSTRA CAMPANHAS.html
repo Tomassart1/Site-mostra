@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campanhas e Divulgações</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    /* Cabeçalho */
+    header {
+      background-color: #7b2ff7;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 22px;
+      background: #4c1bcf;
+      padding: 10px 25px;
+      border-radius: 30px;
+      display: inline-block;
+    }
+
+    /* Botão menu */
+    .top-icons {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    /* Navegação */
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      background-color: #9d5df7;
+      padding: 10px;
+      flex-wrap: wrap;
+    }
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    /* Grid de campanhas */
+    .container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      padding: 20px 40px;
+    }
+    .card {
+      background: #e6e6e6;
+      border-radius: 8px;
+      padding: 15px;
+      display: flex;
+      gap: 15px;
+      align-items: flex-start;
+    }
+    .card img {
+      width: 120px;
+      height: 120px;
+      border-radius: 6px;
+      object-fit: cover;
+      background: #ccc;
+    }
+    .card div {
+      flex: 1;
+    }
+    .card h2 {
+      margin: 0 0 10px;
+      font-size: 16px;
+      color: #222;
+    }
+    .card p {
+      margin: 4px 0;
+      font-size: 14px;
+    }
+    .card a {
+      display: inline-block;
+      margin-top: 8px;
+      color: #7b2ff7;
+      font-size: 14px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .card a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <!-- Cabeçalho -->
+  <header>
+    <h1>CAMPANHAS E DIVULGAÇÕES</h1>
+    <div class="top-icons">☰</div>
+  </header>
+
+  <!-- Menu de navegação -->
+  <nav>
+    <a href="#">Abrigos e Centros</a>
+    <a href="#">Campanhas</a>
+    <a href="#">Voluntários</a>
+    <a href="#">Comunicação</a>
+    <a href="#">Desaparecidos</a>
+    <a href="#">Contatos</a>
+  </nav>
+
+  <!-- Cards de campanhas -->
+  <div class="container">
+    <div class="card">
+      <img src="https://via.placeholder.com/120" alt="Campanha ADCAP">
+      <div>
+        <h2>Campanha ADCAP</h2>
+        <p><b>Forma de ajuda:</b> Pix</p>
+        <p><b>Arrecadação total:</b> R$72.341,86</p>
+        <p><b>Meta:</b> R$150.000,00</p>
+        <p><b>Fim da campanha:</b> 14/07/2024</p>
+        <a href="#">Mais informações</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/120" alt="Projeto Adote um Pet">
+      <div>
+        <h2>Projeto Adote um pet</h2>
+        <p><b>Forma de ajuda:</b> Doação de ração; Adoção de animais</p>
+        <p><b>Arrecadação total:</b> R$35KG de ração; R$120,00</p>
+        <p><b>Meta:</b> 1000KG de ração; R$500,00</p>
+        <p><b>Fim da campanha:</b> 20/12/2024</p>
+        <a href="#">Mais informações</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/120" alt="Campanha CVC">
+      <div>
+        <h2>Campanha CVC</h2>
+        <p><b>Forma de ajuda:</b> Doação de roupas, calçados, lenços, toalhas, cobertores</p>
+        <p><b>Arrecadação total:</b> Mais informações na página oficial</p>
+        <p><b>Fim da campanha:</b> 19/05/2024</p>
+        <a href="#">Mais informações</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/120" alt="Campanha De Belém para o RS">
+      <div>
+        <h2>Campanha: De Belém para o RS</h2>
+        <p><b>Forma de ajuda:</b> Pix; Doação de ração (cães e gatos); Materiais de limpeza</p>
+        <p><b>Arrecadação total:</b> Mais informações na página oficial</p>
+        <p><b>Fim da campanha:</b> 08/05/2024</p>
+        <a href="#">Mais informações</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

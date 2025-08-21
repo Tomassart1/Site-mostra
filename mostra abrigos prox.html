@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Pessoas</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    /* Cabeçalho */
+    header {
+      background-color: #7b2ff7;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+      background: #4c1bcf;
+      padding: 10px 30px;
+      border-radius: 30px;
+      display: inline-block;
+    }
+
+    /* Botão menu */
+    .top-icons {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    /* Navegação */
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      background-color: #9d5df7;
+      padding: 10px;
+      flex-wrap: wrap;
+    }
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    /* Grid de pessoas */
+    .container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      padding: 20px 40px;
+    }
+    .card {
+      background: #e6e6e6;
+      border-radius: 8px;
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .card img {
+      width: 100%;
+      height: 150px;
+      border-radius: 8px;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+    .card p {
+      margin: 5px 0;
+      font-size: 14px;
+      text-align: left;
+      width: 100%;
+    }
+    .card button {
+      margin-top: 10px;
+      padding: 8px 12px;
+      background-color: #7b2ff7;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+    .card button:hover {
+      background-color: #5c0fd6;
+    }
+  </style>
+</head>
+<body>
+  <!-- Cabeçalho -->
+  <header>
+    <h1>LISTA DE PESSOAS</h1>
+    <div class="top-icons">☰</div>
+  </header>
+
+  <!-- Menu de navegação -->
+  <nav>
+    <a href="#">Abrigos e Centros</a>
+    <a href="#">Campanhas</a>
+    <a href="#">Voluntários</a>
+    <a href="#">Comunicação</a>
+    <a href="#">Desaparecidos</a>
+    <a href="#">Contatos</a>
+  </nav>
+
+  <!-- Cards -->
+  <div class="container">
+    <div class="card">
+      <img src="https://via.placeholder.com/300x150" alt="Imagem">
+      <p><b>Nome:</b></p>
+      <p><b>Telefone:</b></p>
+      <p><b>Endereço:</b></p>
+      <button>Clique aqui para mais informações</button>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/300x150" alt="Imagem">
+      <p><b>Nome:</b></p>
+      <p><b>Telefone:</b></p>
+      <p><b>Endereço:</b></p>
+      <button>Clique aqui para mais informações</button>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/300x150" alt="Imagem">
+      <p><b>Nome:</b></p>
+      <p><b>Telefone:</b></p>
+      <p><b>Endereço:</b></p>
+      <button>Clique aqui para mais informações</button>
+    </div>
+  </div>
+</body>
+</html>
