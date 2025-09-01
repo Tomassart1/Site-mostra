@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Pessoas</title>
+  <style>
+    .container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      padding: 20px 40px;
+    }
+    .card {
+      background: #e6e6e6;
+      border-radius: 8px;
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .card img {
+      width: 100%;
+      height: 150px;
+      border-radius: 8px;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+    .card p {
+      margin: 5px 0;
+      font-size: 14px;
+      text-align: left;
+      width: 100%;
+    }
+    .card button {
+      margin-top: 10px;
+      padding: 8px 12px;
+      background-color: #7b2ff7;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+    .card button:hover {
+      background-color: #5c0fd6;
+    }
+
+    /* ===== Modal ===== */
+    .modal {
+      display: none; /* escondido por padrão */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .modal-content {
+      background: #7b2ff7;
+      color: white;
+      padding: 20px;
+      border-radius: 12px;
+      width: 400px;
+      max-width: 90%;
+      position: relative;
+    }
+    .modal-content h2 {
+      margin-top: 0;
+    }
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 20px;
+      cursor: pointer;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <!-- Cards -->
+  <div class="container">
+    <div class="card">
+      <img src="../imagens/abrigo central.webp" alt="Imagem">
+      <p><b>Abrigo Central</b></p>
+      <p><b>Telefone: (54) 34567-1232</b></p>
+      <p><b>Capacidade: 80 pessoas</b></p>
+      <p><b>Endereço: Rua das Flores, 123</b></p>
+      <button onclick="abrirModal('modal1')">Clique aqui para mais informações</button>
+    </div>
+
+    <div class="card">
+      <img src="../imagens/Centro Comunitário São José.jpg" alt="Imagem">
+      <p><b>Centro Comunitário São José</b></p>
+      <p><b>Telefone: (54) 99856-3487</b></p>
+      <p><b>Capacidade: 120 pessoas</b></p>
+      <p><b>Endereço: Av. Brasil, 456</b></p>
+      <button onclick="abrirModal('modal2')">Clique aqui para mais informações</button>
+    </div>
+
+    <div class="card">
+      <img src="../imagens/aurora.jpg" alt="Imagem">
+      <p><b>Escola Municipal Aurora</b></p>
+      <p><b>Telefone: (54) 87991-1213</b></p>
+      <p><b>Capacidade: 100 pessoas</b></p>
+      <p><b>Endereço: Rua da Paz, 789</b></p>
+      <button onclick="abrirModal('modal3')">Clique aqui para mais informações</button>
+    </div>
+  </div>
+
+  <!-- Modal 1 -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="fecharModal('modal1')">&times;</span>
+      <h2>Abrigo Central</h2>
+      <p><b>Telefone:</b> (54) 34567-1232</p>
+      <p><b>Capacidade:</b> 80 pessoas</p>
+      <p><b>Endereço:</b> Rua das Flores, 123</p>
+      <p><b>Horário de funcionamento:</b> 09h às 20h</p>
+      <p><b>Necessidade atual:</b> cobertores e água potável</p>
+    </div>
+  </div>
+
+  <!-- Modal 2 -->
+  <div id="modal2" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="fecharModal('modal2')">&times;</span>
+      <h2>Centro Comunitário São José</h2>
+      <p><b>Telefone:</b> (54) 99856-3487</p>
+      <p><b>Capacidade:</b> 120 pessoas</p>
+      <p><b>Endereço:</b> Av. Brasil, 456</p>
+      <p><b>Horário de funcionamento:</b> 08h às 22h</p>
+      <p><b>Necessidade atual:</b> alimentos não perecíveis e voluntários para organização</p>
+    </div>
+  </div>
+
+  <!-- Modal 3 -->
+  <div id="modal3" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="fecharModal('modal3')">&times;</span>
+      <h2>Escola Municipal Aurora</h2>
+      <p><b>Telefone:</b> (54) 87991-1213</p>
+      <p><b>Capacidade:</b> 100 pessoas</p>
+      <p><b>Endereço:</b> Rua da Paz, 789</p>
+      <p><b>Horário de funcionamento:</b> 07h às 19h</p>
+      <p><b>Necessidade atual:</b> produtos de higiene e roupas</p>
+    </div>
+  </div>
+
+  <script>
+    function abrirModal(id) {
+      document.getElementById(id).style.display = "flex";
+    }
+    function fecharModal(id) {
+      document.getElementById(id).style.display = "none";
+    }
+    // Fechar modal clicando fora dele
+    window.onclick = function(event) {
+      let modais = document.getElementsByClassName("modal");
+      for (let i = 0; i < modais.length; i++) {
+        if (event.target === modais[i]) {
+          modais[i].style.display = "none";
+        }
+      }
+    }
+  </script>
+</body>
+</html>
